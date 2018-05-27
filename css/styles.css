@@ -1,6 +1,10 @@
 @charset "utf-8";
 /* CSS Document */
 
+html, body {
+  margin: 0;
+ }
+ 
 body,td,th,p{
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 10pt;
@@ -38,6 +42,8 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 #maincontent {
   background-color: #f3f3f3;
   min-height: 100%;
+  display: inline-block;
+  overflow:  hidden;
 }
 #footer {
   background-color: #444;
@@ -57,6 +63,7 @@ nav {
 }
 nav h1 {
   margin: auto;
+  padding-top: 25px;
 }
 nav h1 a {
   color: #fff;
@@ -66,12 +73,12 @@ nav h1 a {
   text-transform: uppercase;
 }
 #breadcrumb {
-    padding: 10px 40px 16px;
+    padding: 10px 0px 16px 10px;
     list-style: none;
     background-color: #eee;
     font-size: 17px;
     margin: 0;
-    width: calc(50% - 80px);
+    /* width: calc(50% - 80px); */
 }
 
 /* Display list items side by side */
@@ -154,9 +161,9 @@ nav h1 a {
   display: block;
   margin: 0;
   width: 100%;
-  max-width: 100%;
+  /* max-width: 100%; */
   min-height: 248px;
-  min-width: 100%;
+  /* min-width: 100%; */
 }
 #restaurants-list li h1 {
   color: #f18200;
@@ -187,7 +194,8 @@ nav h1 a {
 
 /* ====================== Restaurant Details ====================== */
 .inside header {
-  position: fixed;
+  overflow:  hidden;
+  position: relative;
   top: 0;
   width: 100%;
   z-index: 1000;
@@ -200,15 +208,20 @@ nav h1 a {
   top: 80px;
   width: 50%;
 }
+.inside .col-6{
+  position: relative;
+  display: inline-block;
+  width: 49%;
+}
 .inside #map {
   background-color: #ccc;
   height: 100%;
-  width: 100%;
+  width: 50%;
+  top: 0;
 }
 .inside #footer {
   bottom: 0;
-  position: absolute;
-  width: 50%;
+  position: relative;
 }
 #restaurant-name {
   color: #f18200;
@@ -242,8 +255,8 @@ nav h1 a {
 #restaurant-container, #reviews-container {
   border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
-  padding: 140px 40px 30px;
-  width: 50%;
+  padding: 30px 40px 30px;
+  width: 100%;
 }
 #reviews-container {
   padding: 30px 40px 80px;
@@ -277,6 +290,10 @@ nav h1 a {
   color: #666;
 }
 
+.inside #map{
+  position: fixed !important;
+}
+
 
 /* For desktop: */
 .col-1 {width: 8.33%;}
@@ -294,7 +311,29 @@ nav h1 a {
 
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
-    [class*="col-"] {
-        width: 100%;
+    #restaurants-list li {
+        width: 76%;
     }
+    #breadcrumb{
+      width: 100%;
+      position:  relative;
+    }
+    .inside .col-6{
+      width: 100%;
+    }
+    .inside #map-container{
+      display: none;
+      position: relative;
+      width: 100%;
+    }
+    .inside #map{
+      position: relative !important;
+      height: 300px;
+      width: 100%;
+    }
+    #restaurant-container, #reviews-container{
+      width: 100%;
+      padding-top: 30px;
+    }
+    
 }
