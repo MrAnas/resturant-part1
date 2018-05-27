@@ -1,4 +1,4 @@
-const CACHE = "resturant-app-chache";
+const CACHE = "resturant-app-cache";
 
 const urlToCache = [
     "./",
@@ -32,15 +32,12 @@ self.addEventListener("install", event =>{
     )
 })
 
-self.addEventListener('activate', function(event) {
-
-    var cacheWhitelist = ['pages-cache-v1', 'blog-posts-cache-v1'];
-  
+self.addEventListener('activate', function(event) {  
     event.waitUntil(
       caches.keys().then(function(cacheNames) {
         return Promise.all(
           cacheNames.map(function(cacheName) {
-            if (cacheWhitelist.indexOf(cacheName) === -1) {
+            if (urlToCache.indexOf(cacheName) === -1) {
               return caches.delete(cacheName);
             }
           })
