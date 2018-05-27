@@ -16,7 +16,7 @@
 
   <main id="maincontent">
     <section id="map-container">
-      <div id="map"></div>
+      <div aria-label="Map" id="map"></div>
     </section>
     <section>
       <div class="filter-options">
@@ -35,13 +35,7 @@
   <script type="application/javascript" charset="utf-8" src="js/dbhelper.js"></script>
   <script type="application/javascript" charset="utf-8" src="js/main.js"></script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_Ju6IiWcaEEJEJCsgLhHyZ5cx_Fb-gNY&libraries=places&callback=initMap"></script>
-  <script type="application/javascript" charset="utf-8">
-  if('serviceWorker' in navigator) {
-  navigator.serviceWorker
-           .register('/sw.js')
-           .then(function() { console.log("Service Worker Registered"); });
-}
-</script>
+  <script type="application/javascript" charset="utf-8" src="sw-reg.js"></script>
   <!-- <script type="application/javascript" charset="utf-8" src="sw.js"></script> -->
 
   <footer id="footer">
